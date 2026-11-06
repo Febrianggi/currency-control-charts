@@ -2,8 +2,6 @@
 
 An interactive dashboard that shows how any currency in the workbook behaves against the IMF's Special Drawing Rights (SDR) and how it compares with ASEAN and world currencies. It opens on the Indonesian rupiah (IDR) and you can pick any other currency. It uses an x̄ control chart and runs from a single `index.html` file, in the browser, with no server.
 
-Live page: `https://YOUR-USERNAME.github.io/YOUR-REPO/` (replace after you enable GitHub Pages, see below)
-
 ## What it shows
 
 | Section | Content |
@@ -55,7 +53,7 @@ Nothing is uploaded anywhere. The file is read inside your browser.
 
 Dates can be text (`2026-04-30`) or real Excel dates. Add a new month at the bottom of each sheet and it appears on every chart. Years with all 12 months are used for the yearly averages.
 
-The workbook used for the paper is in `data/QC_FIX.xlsx`.
+The workbook used for the paper is in `data.xlsx`.
 
 ## Publish it with GitHub Pages
 
@@ -95,7 +93,7 @@ currency_control_chart.ipynb    Google Colab notebook with the same calculations
 fetch_xe_data.ipynb             Colab notebook that downloads the monthly rates from XE
 README.md                       this file
 .nojekyll                       tells GitHub Pages to serve the files as they are
-data/QC_FIX.xlsx                the source workbook
+data.xlsx                the source workbook
 ```
 
 ## Technical notes
