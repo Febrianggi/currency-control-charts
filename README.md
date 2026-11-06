@@ -67,11 +67,10 @@ Append new rows at the bottom of `Global Data` (and of `Data IDR` and `Data ASEA
 ## Files
 
 ```
-index.html                      the whole dashboard (code, libraries, fonts and built-in data)
+index.html                      the whole dashboard
 currency_control_chart.ipynb    Google Colab notebook with the same calculations
 fetch_xe_data.ipynb             Colab notebook that downloads the monthly rates from XE
 README.md                       this file
-.nojekyll                       tells GitHub Pages to serve the files as they are
 data.xlsx                the source workbook
 ```
 
