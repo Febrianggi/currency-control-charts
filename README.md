@@ -23,7 +23,7 @@ For comparisons, each currency is standardized against its own monthly history (
 
 ## Open it
 
-Online: use the GitHub Pages link above.
+Online: use the GitHub Pages link (https://febrianggi.github.io/currency-control-charts).
 
 Offline: download `index.html` and open it in a browser. Chart.js, SheetJS, the fonts and a copy of the data are all inside the file, so it needs no internet connection.
 
@@ -41,30 +41,9 @@ A web page cannot watch a file on your disk by itself. In Chrome and Edge, the *
 
 Nothing is uploaded anywhere. The file is read inside your browser.
 
-### Workbook layout
-
-| Sheet | Required | Layout |
-|---|---|---|
-| `Data IDR` | No, taken from the world sheet if missing | Row 1 is a header. Column A is the month end date, column B is IDR per SDR. Optional: `L` in F2 and its value in G2 (default 2) |
-| `Data ASEAN` | No, taken from the world sheet if missing | Row 2 holds the currency codes from column B. Raw values start in row 3, with dates in column A |
-| `Global Data` (or `Data Dunia`) | Yes | Row 1 holds the currency codes from column B, up to the first empty cell. Raw values start in row 2, with dates in column A |
-| `IDR VS ASEAN` | No | CL, UCL and LCL in columns G to I of row 2. If missing, limits are computed |
-| `IDR VS Global` | No | CL, UCL and LCL in columns G to I of row 2. If missing, limits are computed |
-
-Dates can be text (`2026-04-30`) or real Excel dates. Add a new month at the bottom of each sheet and it appears on every chart. Years with all 12 months are used for the yearly averages.
+### Workbook Layout
 
 The workbook used for the paper is in `data.xlsx`.
-
-## Publish it with GitHub Pages
-
-The page is a static site, so GitHub can host it directly. The link opens the dashboard, not the repository.
-
-1. Create a repository and upload `index.html`, `README.md`, `.nojekyll` and the `data` folder to the root.
-2. Open **Settings**, then **Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**, choose the `main` branch and the `/ (root)` folder, then save.
-4. After a minute or two the site is live at `https://YOUR-USERNAME.github.io/YOUR-REPO/`.
-
-To use the short address `https://YOUR-USERNAME.github.io/`, name the repository `YOUR-USERNAME.github.io`.
 
 ## Run it in Google Colab
 
@@ -72,7 +51,7 @@ To use the short address `https://YOUR-USERNAME.github.io/`, name the repository
 
 ## Download the data yourself
 
-`fetch_xe_data.ipynb` collects the rates from the source cited in the paper, the XE Currency Exchange Rate Tables with SDR (XDR) as the base currency: https://www.xe.com/currencytables/?from=XDR. It requests the table for each month end between `START` and `END`, keeps the "Units per XDR" column, and writes `data.xlsx` with a single sheet named `Global Data` (dates in column A, currency codes in row 1). Load that file in the dashboard or in the analysis notebook.
+`fetch_xe_data.ipynb` collects the rates from the source in this dashboard, the XE Currency Exchange Rate Tables with SDR (XDR) as the base currency: https://www.xe.com/currencytables/?from=XDR. It requests the table for each month end between `START` and `END`, keeps the "Units per XDR" column, and writes `data.xlsx` with a single sheet named `Global Data` (dates in column A, currency codes in row 1). Load that file in the dashboard or in the analysis notebook.
 
 - One sheet is enough. The dashboard takes the IDR series and the ten ASEAN currencies from `Global Data` and computes the limits itself. The sheets `Data IDR`, `Data ASEAN`, `IDR VS ASEAN` and `IDR VS Global` are optional, and the world sheet can also be called `Data Dunia`.
 - Check XE's terms of use before you scrape at scale. The notebook waits between requests, but the site can still change its layout or block automated access. If a request fails, download the tables by hand and paste them into the workbook.
@@ -104,12 +83,3 @@ data.xlsx                the source workbook
 - The world set holds 171 codes: 159 national currencies, 4 precious metals and 8 crypto assets. Ranks cover national currencies only, and the "Currencies only" switch hides the other codes from charts and tables.
 - All charts are control charts: a center line, upper and lower control limits, and out-of-control points marked in red.
 - The light or dark mode follows your system setting at first and can be toggled. It is not stored between visits.
-
-## Data notes
-
-- The yearly values for 2022 to 2025 and the latest month come straight from the workbook. For the rupiah, the 2025 average z-score is +1.21, inside the world limits of ±1.98, and the latest month (April 2026) is +2.52, above them.
-- If the paper text and the workbook disagree, the dashboard shows what the workbook contains.
-
-## Source
-
-The dashboard accompanies a research paper on the performance of the rupiah against world currencies using an x̄ control chart.
