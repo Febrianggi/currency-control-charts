@@ -43,7 +43,7 @@ Nothing is uploaded anywhere. The file is read inside your browser.
 
 ### Workbook Layout
 
-The workbook used for the paper is in `data.xlsx`.
+The workbook used for the dashboard is in `data.xlsx`.
 
 ## Run it in Google Colab
 
