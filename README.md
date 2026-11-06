@@ -55,7 +55,7 @@ Nothing is uploaded anywhere. The file is read inside your browser.
 
 Dates can be text (`2026-04-30`) or real Excel dates. Add a new month at the bottom of each sheet and it appears on every chart. Years with all 12 months are used for the yearly averages.
 
-The workbook used for the paper is in `data/QC_FIX.xlsx`.
+The workbook used for the paper is in `data.xlsx`.
 
 ## Publish it with GitHub Pages
 
@@ -87,10 +87,8 @@ Append new rows at the bottom of `Data IDR`, `Data ASEAN` and `Data Dunia` with 
 ```
 index.html                      the whole dashboard (code, libraries, fonts and built-in data)
 currency_control_chart.ipynb    Google Colab notebook with the same calculations
-currency_control_chart.py       the notebook code as a plain script
 README.md                       this file
-.nojekyll                       tells GitHub Pages to serve the files as they are
-data/QC_FIX.xlsx                the source workbook
+data.xlsx                the source workbook
 ```
 
 ## Technical notes
